@@ -2,7 +2,7 @@ const questionsEl = document.querySelector("#questions");
 const timerEl = document.querySelector("#time");
 const optionsEl = document.querySelector("#options");
 const startBtn = document.querySelector("#start");
-const keyEl = document.querySelector("#key");
+const keyEl = document.querySelector(".key");
 
 const currentQuestionIndex = 0;
 let time = questions.length * 15;
@@ -25,7 +25,7 @@ function startQuiz() {
 }
 
 function getQuestion() {
-  const currentQuestion = questions[currentQuestionIndex];
+  let currentQuestion = questions[currentQuestionIndex];
 
   const titleEl = document.getElementById("question-name");
   titleEl.textContent = currentQuestion.title;
@@ -54,11 +54,11 @@ function questionClick() {
     }
     timerEl.textContent = time;
     keyEl.textContent = "Incorrect";
-    keyEl.style.color = "red";
+    keyEl.style.color = "gray";
     keyEl.style.fontSize = "400%";
   } else {
     keyEl.textContent = "Correct";
-    keyEl.style.color = "green";
+    keyEl.style.color = "gray";
     keyEl.style.fontSize = "400%";
   }
 
