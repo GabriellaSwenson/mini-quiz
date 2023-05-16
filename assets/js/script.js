@@ -4,7 +4,7 @@ const optionsEl = document.querySelector("#options");
 const startBtn = document.querySelector("#start");
 const keyEl = document.querySelector(".key");
 
-const currentQuestionIndex = 0;
+let currentQuestionIndex = 0;
 let time = questions.length * 15;
 let timerId;
 
