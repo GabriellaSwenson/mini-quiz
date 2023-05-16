@@ -2,7 +2,7 @@ const questionsEl = document.querySelector("#questions");
 const timerEl = document.querySelector("#time");
 const optionsEl = document.querySelector("#options");
 const startBtn = document.querySelector("#start");
-const feedbackEl = document.querySelector("#feedback");
+const keyEl = document.querySelector("#key");
 
 const currentQuestionIndex = 0;
 let time = questions.length * 15;
@@ -53,18 +53,18 @@ function questionClick() {
       time = 0;
     }
     timerEl.textContent = time;
-    feedbackEl.textContent = "Incorrect";
-    feedbackEl.style.color = "red";
-    feedbackEl.style.fontSize = "400%";
+    keyEl.textContent = "Incorrect";
+    keyEl.style.color = "red";
+    keyEl.style.fontSize = "400%";
   } else {
-    feedbackEl.textContent = "Correct";
-    feedbackEl.style.color = "green";
-    feedbackEl.style.fontSize = "400%";
+    keyEl.textContent = "Correct";
+    keyEl.style.color = "green";
+    keyEl.style.fontSize = "400%";
   }
 
-  feedbackEl.setAttribute("class", "feedback");
+  keyEl.setAttribute("class", "key");
   setTimeout(function () {
-    feedbackEl.setAttribute("class", "feedback hide");
+    keyEl.setAttribute("class", "key hide");
   }, 1000);
 
   currentQuestionIndex++;
@@ -91,7 +91,9 @@ function quizEnd() {
 function clockTick() {
   time--;
 
-  timerEl.textContent = time;
+  if (timerEl) {
+    timerEl.textContent = time;
+  }
 
   if (time <= 0) {
     quizEnd();
